@@ -4,18 +4,24 @@ new Swiper(".swiper",  {
         prevEl: ".swiper-button-prev",
     },
 });
-$('.swiper-gallery').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.slider-nav'
+$(document).ready(function(){
+  $('.swiper-gallery').slick(
+    {
+      arrows:false,
+      dots:false,
+      adaptiveHeight:true,
+      slidesToShow: 6,
+      speed:1000,
+      easting: 'ease',
+      infinite:true,
+      asNavFor: ".swiper-gallery-big"
+    }
+  );
+});
+$(document).ready(function(){
+  $('.swiper-gallery-big').slick({
+    arrows: true,
+    fade:true,
+    asNavFor: ".swiper-gallery"
   });
-  $('.slider-nav').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.swiper-gallery',
-    dots: true,
-    centerMode: true,
-    focusOnSelect: true
-  });
+});
